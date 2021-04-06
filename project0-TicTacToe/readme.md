@@ -11,7 +11,7 @@ Must Do:
 8. Add pvp mode
 9. Add timer to make computer look like thinking
 10. Make computer be able to move first
-11. Button and lines keep changing gradients
+11. Make the background starry sky shine
 [OK]Keep track of multiple game rounds with a win counter
 [OK]Popup window (modal window) for congratulation
 
