@@ -10,7 +10,7 @@ html,body{
 }
 
 body {
-    background-image: url('img/starry\ sky.jpeg');
+    background-image: url('../img/starry\ sky.jpeg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -29,7 +29,7 @@ header {
 main {
     text-align: center;
     padding: 100px;
-    background-image: url('img/background.png');
+    background-image: url('../img/background.png');
     background-size:65%;
     background-repeat: no-repeat;
     background-position:165px 70px;
@@ -52,11 +52,11 @@ main button {
 }
 
 .cross {
-    background-image: url('img/cross.png');
+    background-image: url('../img/cross.png');
 }
 
 .circle {
-    background-image: url('img/circle.png');
+    background-image: url('../img/circle.png');
 }
 
 .confirm {
