@@ -117,7 +117,7 @@ $(document).ready(function () {
               $("#lose").addClass("show");
               records.computerWin++;
               records.rounds++;
-              showRecords(); 
+              showRecords();
             } 
             
           };

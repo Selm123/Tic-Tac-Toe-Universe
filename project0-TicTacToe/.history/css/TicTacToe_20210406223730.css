@@ -3,9 +3,10 @@
     border:1px solid green;
 } */
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
-
+@font-face {
+    font-family:"star-wars";
+    src: url("../font/StarJedi-DGRW.ttf") format("truetype");
+  }
 
 html,
 body {
@@ -13,7 +14,7 @@ body {
   margin: 0px;
   padding: 0px;
   overflow: hidden;
-  font-family: "Poller One";
+  font-family: 'star-wars';
 }
 
 body {
@@ -87,7 +88,6 @@ main button {
   margin-top: 50px;
   height: 50px;
   width: 100px;
-  font-family: "Poller One";
 }
 
 .show {
@@ -128,7 +128,7 @@ header {
   width: 350px;
   margin: 10px auto;
   display: block;
-  font-size: 23px;
+  font-size: 25px;
   border-radius: 10px;
   animation-name: title;
   animation-duration: 2s;
@@ -155,17 +155,19 @@ header {
   }
 }
 
+
+
 footer {
   position: relative;
   color: white;
   top: -500px;
   left: -100px;
-  font-size:x-large;
-  width: 30%;
+  font-size: x-large;
+  width: 20%;
   text-align: right;
 }
 
 footer p {
   position: relative;
-  left: -145px;
+  left: -75px;
 }

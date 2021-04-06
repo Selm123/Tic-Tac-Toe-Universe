@@ -87,7 +87,6 @@ main button {
   margin-top: 50px;
   height: 50px;
   width: 100px;
-  font-family: "Poller One";
 }
 
 .show {
@@ -161,11 +160,11 @@ footer {
   top: -500px;
   left: -100px;
   font-size:x-large;
-  width: 30%;
+  width: 22%;
   text-align: right;
 }
 
 footer p {
   position: relative;
-  left: -145px;
+  left: -75px;
 }

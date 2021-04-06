@@ -117,11 +117,10 @@ $(document).ready(function () {
               $("#lose").addClass("show");
               records.computerWin++;
               records.rounds++;
-              showRecords(); 
-            } 
+              showRecords();
+            }
             
           };
-          // make computer look like taking time thinking
           setTimeout(computerMove,300);
         }
       });
