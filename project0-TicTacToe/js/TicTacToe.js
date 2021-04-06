@@ -1,9 +1,42 @@
 $(document).ready(function () {
-  const buttons = {};
+  let buttons = {};
 
-  const playerButtons = [];
+  let playerButtons = [];
 
-  const computerButtons = [];
+  let computerButtons = [];
+
+  $('#newGame').on('click',gameStart);
+
+  function reset() {
+    $('audio').prop('autoplay',true);
+    $(".confirm").removeClass("show");
+    $("main button").prop("disabled", false);
+    buttons = {};
+    playerButtons = [];
+    computerButtons = [];
+    $('main button').removeClass('cross');
+    $('main button').removeClass('circle');
+    gameStart();
+  }
+
+  $("#winContinue").on("click", reset);
+  $("#winEndGame").on("click", reset);
+  $("#loseContinue").on("click", reset);
+  $("#loseEndGame").on("click", reset);
+
+  let records = {
+    rounds: 0,
+    playerWin: 0,
+    computerWin: 0,
+  };
+
+  const showRecords = () => {
+    $("#rounds").text(`Rounds: ${records.rounds}`);
+    $("#playerWin").text(`Player Win: ${records.playerWin}`);
+    $("#computerWin").text(`Computer Win: ${records.computerWin}`);
+  };
+
+  showRecords();
 
   // function to check whether wins
   const checkWin = (buttonArr) => {
@@ -23,46 +56,63 @@ $(document).ready(function () {
       containAnotherArray(buttonArr, arr)
     );
     if (resultArr.includes(true)) {
-      $("button").prop("disabled", true);
+      $("main button").prop("disabled", true);
       return true;
     }
   };
 
-  // Junior level, AI would play the game randomly
-  for (let i = 0; i < 9; i++) {
-    // initialize the info of each button (?del info?)
-    buttons[`${i + 1}`] = { owner: "none" };
-    // add click event listener to each button
-    $(`#btn${i + 1}`).on("click", function () {
-      // show circle on the button, disable it and record id
-      buttons[`${i + 1}`] = { owner: "player" }; //?del?
-      $(`#btn${i + 1}`).addClass("circle");
-      $(`#btn${i + 1}`).prop("disabled", true);
-      playerButtons.push(i + 1);
-      // check whether player wins: could more than 4 digits
-      console.log(playerButtons);
-      if (checkWin(playerButtons)) {
-        $('h1').text('You win!')
-      }
-      // select one randomly from remaining buttons and record id
-      else {
-        delete buttons[`${i + 1}`];
-        const remainBtns = Object.keys(buttons).filter((id) => id !== i + 1);
-        const randomBtnId =
-          remainBtns[Math.floor(Math.random() * remainBtns.length)];
-        computerButtons.push(randomBtnId - 0);
-        // show cross on random button, disable it and update info
-        buttons[`${randomBtnId}`] = { owner: "computer" }; //?del?
-        $(`#btn${randomBtnId}`).addClass("cross");
-        $(`#btn${randomBtnId}`).prop("disabled", true);
-        // delete
-        delete buttons[`${randomBtnId}`];
-        remainBtns.splice(remainBtns.indexOf(randomBtnId), 1);
-        // check whether computer wins
-        if (checkWin(computerButtons)) {
-          $('h1').text('computer win!')
+
+  function gameStart() {
+    
+    for (let i = 0; i < 9; i++) {
+      // initialize the info of each button (?del info?)
+      buttons[`${i + 1}`] = { owner: "none" };
+      // add click event listener to each button
+      $(`#btn${i + 1}`).on("click", function () {
+        // show circle on the button, disable it and record id
+        buttons[`${i + 1}`] = { owner: "player" }; //?del?
+        $(`#btn${i + 1}`).addClass("circle");
+        $(`#btn${i + 1}`).prop("disabled", true);
+        playerButtons.push(i + 1);
+        // check whether player wins: could more than 4 digits
+        console.log(playerButtons);
+        if (checkWin(playerButtons)) {
+          $("h1").text("You win!");
+          $("#win").addClass("show");
+          records.playerWin++;
+          records.rounds++;
+          showRecords();
+          
         }
-      }
-    });
+        // select one randomly from remaining buttons and record id
+        else {
+          delete buttons[`${i + 1}`];
+          const remainBtns = Object.keys(buttons).filter((id) => id !== i + 1);
+          const randomBtnId =
+            remainBtns[Math.floor(Math.random() * remainBtns.length)];
+          computerButtons.push(randomBtnId - 0);
+          // show cross on random button, disable it and update info
+          buttons[`${randomBtnId}`] = { owner: "computer" }; //?del?
+          $(`#btn${randomBtnId}`).addClass("cross");
+          $(`#btn${randomBtnId}`).prop("disabled", true);
+          // delete
+          delete buttons[`${randomBtnId}`];
+          remainBtns.splice(remainBtns.indexOf(randomBtnId), 1);
+          // check whether computer wins
+          console.log(computerButtons);
+          if (checkWin(computerButtons)) {
+            $("h1").text("computer win!");
+            $("#lose").addClass("show");
+            records.computerWin++;
+            records.rounds++;
+            showRecords();
+            
+          }
+        }
+      });
+    }
   }
+  // Junior level, AI would play the game randomly
+  
+  
 });
