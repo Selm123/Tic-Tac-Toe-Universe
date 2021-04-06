@@ -5,35 +5,40 @@ $(document).ready(function () {
 
   let computerButtons = [];
 
-  $('#newGame').on('click',gameStart);
+  let records = {
+    rounds: 0,
+    playerWin: 0,
+    computerWin: 0,
+    draw: 0,
+  };
 
   function reset() {
-    $('audio').prop('autoplay',true);
     $(".confirm").removeClass("show");
     $("main button").prop("disabled", false);
     buttons = {};
     playerButtons = [];
     computerButtons = [];
-    $('main button').removeClass('cross');
-    $('main button').removeClass('circle');
+    $("main button").removeClass("cross");
+    $("main button").removeClass("circle");
+    for (let i = 0; i < 9; i++) {
+      $(`#btn${i + 1}`).off(`click`);
+    }
     gameStart();
   }
 
+  $("#newGame").on("click", reset);
   $("#winContinue").on("click", reset);
   $("#winEndGame").on("click", reset);
   $("#loseContinue").on("click", reset);
   $("#loseEndGame").on("click", reset);
-
-  let records = {
-    rounds: 0,
-    playerWin: 0,
-    computerWin: 0,
-  };
+  $("#drawContinue").on("click", reset);
+  $("#drawEndGame").on("click", reset);
 
   const showRecords = () => {
     $("#rounds").text(`Rounds: ${records.rounds}`);
     $("#playerWin").text(`Player Win: ${records.playerWin}`);
     $("#computerWin").text(`Computer Win: ${records.computerWin}`);
+    $("#draw").text(`Draw: ${records.draw}`);
   };
 
   showRecords();
@@ -61,9 +66,8 @@ $(document).ready(function () {
     }
   };
 
-
   function gameStart() {
-    
+    // $('#newGame').text('Reset Game');
     for (let i = 0; i < 9; i++) {
       // initialize the info of each button (?del info?)
       buttons[`${i + 1}`] = { owner: "none" };
@@ -74,15 +78,21 @@ $(document).ready(function () {
         $(`#btn${i + 1}`).addClass("circle");
         $(`#btn${i + 1}`).prop("disabled", true);
         playerButtons.push(i + 1);
+        // check whether draw
+        if (Object.keys(buttons).length === 1 && !checkWin(playerButtons)) {
+          $("h1").text("It's a draw!");
+          $("#drawResult").addClass("show");
+          records.draw++;
+          records.rounds++;
+          showRecords();
+        }
         // check whether player wins: could more than 4 digits
-        console.log(playerButtons);
-        if (checkWin(playerButtons)) {
+        else if (checkWin(playerButtons)) {
           $("h1").text("You win!");
           $("#win").addClass("show");
           records.playerWin++;
           records.rounds++;
           showRecords();
-          
         }
         // select one randomly from remaining buttons and record id
         else {
@@ -99,20 +109,16 @@ $(document).ready(function () {
           delete buttons[`${randomBtnId}`];
           remainBtns.splice(remainBtns.indexOf(randomBtnId), 1);
           // check whether computer wins
-          console.log(computerButtons);
           if (checkWin(computerButtons)) {
             $("h1").text("computer win!");
             $("#lose").addClass("show");
             records.computerWin++;
             records.rounds++;
             showRecords();
-            
           }
         }
       });
     }
   }
   // Junior level, AI would play the game randomly
-  
-  
 });

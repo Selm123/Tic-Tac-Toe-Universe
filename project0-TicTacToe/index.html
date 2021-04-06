@@ -21,14 +21,12 @@
       integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
       crossorigin="anonymous"
     ></script> -->
+    <audio controls autoplay loop hidden>
+      <source src="mp3/relaxdaily N083.mp3" type="audio/mp3" />
+    </audio>
   </head>
   <body>
     <div class="container">
-      
-      <audio controls hidden loop>
-        <source src="mp3/zen.mp3" type="audio/mp3" />
-      </audio>
-
       <header>
         <h1>Tic Tac Toe!</h1>
       </header>
@@ -65,13 +63,20 @@
           <button id="loseContinue">Continue</button>
           <button id="loseEndGame">End Game</button>
         </div>
-      </aside>
 
+        <div id="drawResult" class="confirm">
+            <p>It's a draw!</p>
+            <button id="drawContinue">Continue</button>
+            <button id="drawEndGame">End Game</button>
+          </div>
+      </aside>
+ 
       <footer>
         <button id="newGame">New Game</button>
         <p id="rounds"></p>
         <p id="playerWin"></p>
         <p id="computerWin"></p>
+        <p id="draw"></p>
       </footer>
     </div>
   </body>

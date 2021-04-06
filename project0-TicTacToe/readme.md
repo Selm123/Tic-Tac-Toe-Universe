@@ -2,13 +2,19 @@
 Iteration list:
 Must Do:
 1. Add computer level choice (not chess randomly but try to win)
-2. Change icon, replace with earth and sun gif
-3. Keep track of multiple game rounds with a win counter
-4. fireworks on background and music
-5. Popup window (modal window) for congratulation
-6. * **Use LocalStorage** to persist data locally to allow games to continue after page refresh or loss of internet connectivity
-7. Make lines background colour and set a timer to change colour gradients constantly
-8. Hover red, but no hover red after game finish
+2. Change icon, replace with earth and sun gif, make them move with the mouse before click
+3. fireworks on background and music
+4. * **Use LocalStorage** to persist data locally to allow games to continue after page refresh or loss of internet connectivity
+5. Make lines background colour and set a timer to change colour gradients constantly
+6. Hover red, but no hover red after game finish
+7. Add new font to make it look better
+8. Add pvp mode
+9. Add timer to make computer look like thinking
+10. Make computer be able to move first
+11. Button and lines keep changing gradients
+[OK]Keep track of multiple game rounds with a win counter
+[OK]Popup window (modal window) for congratulation
+
 
 
 Advanced:
