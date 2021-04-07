@@ -2,7 +2,7 @@ $(document).ready(function () {
   let buttons = {};
 
   for (let i = 0; i < 9; i++) {
-    buttons[`${i + 1}`] = { owner: "none" };  
+    buttons[`${i + 1}`] = { owner: "none" };
   }
 
   let playerButtons = [];
@@ -16,6 +16,15 @@ $(document).ready(function () {
     draw: 0,
   };
 
+  let highestScore = 0;
+
+  const updateHighestScore = () => {
+    if (records.playerWin >= (highestScore - 0)) {
+      highestScore = records.playerWin;
+    }
+    localStorage.setItem("highestScore", highestScore);
+  };
+
   $("#newGame").on("click", newGame);
   $("#winContinue").on("click", resetOneGame);
   $("#winEndGame").on("click", resetWholeGame);
@@ -27,10 +36,11 @@ $(document).ready(function () {
   const resetOneGameData = () => {
     buttons = {};
     for (let i = 0; i < 9; i++) {
-      buttons[`${i + 1}`] = { owner: "none" };  
+      buttons[`${i + 1}`] = { owner: "none" };
     }
     playerButtons = [];
     computerButtons = [];
+    updateHighestScore();
   };
 
   const resetWholeGameData = () => {
@@ -39,13 +49,13 @@ $(document).ready(function () {
     records.playerWin = 0;
     records.computerWin = 0;
     records.draw = 0;
-  }
+  };
 
   const resetOneGameUI = () => {
     $(".confirm").removeClass("show");
     $("main button").removeClass("cross");
     $("main button").removeClass("circle");
-  }
+  };
 
   function resetWholeGameUI() {
     resetOneGameUI();
@@ -57,9 +67,9 @@ $(document).ready(function () {
     $("#newGame").addClass("newGame-before");
     $("#newGame").text("New Game");
     $("#newGame").off("click", resetWholeGame);
-    $("#newGame").on("click", newGame); 
+    $("#newGame").on("click", newGame);
     $("header").removeClass("show");
-    $('footer p').removeClass("show");
+    $("footer p").removeClass("show");
     // $('audio')[0].stop();
   }
 
@@ -72,7 +82,6 @@ $(document).ready(function () {
 
   function resetWholeGame() {
     resetWholeGameData();
-    console.log(records);
     resetWholeGameUI();
     showRecords();
   }
@@ -80,16 +89,16 @@ $(document).ready(function () {
   function newGame() {
     $("main button").prop("disabled", false);
     $("header").addClass("show");
-    $('footer p').addClass("show");
+    $("footer p").addClass("show");
     $("#newGame").removeClass("newGame-before");
     $("#newGame").addClass("newGame-after");
     $("#newGame").text("Reset Game");
-    // remove temporarily
-    // $('audio')[0].play();
-    showRecords();
-    gameStart();
     $("#newGame").off("click", newGame);
     $("#newGame").on("click", resetWholeGame);
+    showRecords();
+    gameStart();
+    // remove temporarily
+    // $('audio')[0].play();
   }
 
   const showRecords = () => {
@@ -97,6 +106,9 @@ $(document).ready(function () {
     $("#playerWin").text(`Player Win: ${records.playerWin}`);
     $("#computerWin").text(`Computer Win: ${records.computerWin}`);
     $("#draw").text(`Draw: ${records.draw}`);
+    $("#highestScore").text(
+      `Highest Score: ${localStorage.getItem("highestScore")}`
+    );
   };
 
   // function to check whether wins

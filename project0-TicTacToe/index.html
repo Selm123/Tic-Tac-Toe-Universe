@@ -13,6 +13,8 @@
     /> -->
     <!-- <link rel="stylesheet" href="css/Modal.css" /> -->
     <link rel="stylesheet" href="css/TicTacToe.css" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="icon" type="image/gif" href="favicon/animated_favicon1.gif" />
     <script src="js/jquery.js"></script>
     <!-- <script src="js/Modal.js"></script> -->
     <script src="js/TicTacToe.js"></script>
@@ -23,7 +25,7 @@
     ></script> -->
     <audio controls loop hidden>
       <source src="mp3/relaxdaily N083.mp3" type="audio/mp3" />
-    </audio> 
+    </audio>
   </head>
   <body>
     <div class="container">
@@ -54,29 +56,30 @@
       <aside>
         <div id="win" class="confirm">
           <p>Congratulations, you win!</p>
-          <button id="winContinue">Continue</button>
-          <button id="winEndGame">End Game</button>
-        </div> 
+          <button id="winEndGame" class='end'>End Game</button>
+          <button id="winContinue" class='continue'>Continue</button>
+        </div>
 
         <div id="lose" class="confirm">
           <p>Oops, you lose!</p>
-          <button id="loseContinue">Continue</button>
-          <button id="loseEndGame">End Game</button>
+          <button id="loseEndGame" class='end'>End Game</button>
+          <button id="loseContinue" class='continue'>Continue</button>
         </div>
 
         <div id="drawResult" class="confirm">
           <p>It's a draw!</p>
-          <button id="drawContinue">Continue</button>
-          <button id="drawEndGame">End Game</button>
+          <button id="drawEndGame" class='end'>End Game</button>
+          <button id="drawContinue" class='continue'>Continue</button>
         </div>
       </aside>
 
       <footer>
-        <button id="newGame" class='newGame-before'>New Game</button>
+        <button id="newGame" class="newGame-before">New Game</button>
         <p id="rounds"></p>
         <p id="playerWin"></p>
         <p id="computerWin"></p>
         <p id="draw"></p>
+        <p id="highestScore"></p>
       </footer>
     </div>
   </body>

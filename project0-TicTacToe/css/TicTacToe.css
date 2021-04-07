@@ -90,6 +90,15 @@ main button {
   font-family: "Poller One";
 }
 
+.continue {
+  background-color: rgb(83, 187, 221);
+}
+
+.end {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white;
+}
+
 .show {
   display: block;
   visibility:visible;
@@ -173,7 +182,7 @@ footer {
   color: white;
   top: -500px;
   left: -100px;
-  font-size:x-large;
+  font-size:larger;
   width: 30%;
   text-align: right;
 }
@@ -182,4 +191,8 @@ footer p {
   position: relative;
   left: -145px;
   display: none;
+}
+
+#highestScore {
+  color: orange;
 }
