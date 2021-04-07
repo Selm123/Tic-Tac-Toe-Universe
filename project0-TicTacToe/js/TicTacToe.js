@@ -1,6 +1,10 @@
 $(document).ready(function () {
   let buttons = {};
 
+  for (let i = 0; i < 9; i++) {
+    buttons[`${i + 1}`] = { owner: "none" };  
+  }
+
   let playerButtons = [];
 
   let computerButtons = [];
@@ -12,29 +16,81 @@ $(document).ready(function () {
     draw: 0,
   };
 
-  function reset() {
-    $(".confirm").removeClass("show");
-    $("main button").prop("disabled", false);
+  $("#newGame").on("click", newGame);
+  $("#winContinue").on("click", resetOneGame);
+  $("#winEndGame").on("click", resetWholeGame);
+  $("#loseContinue").on("click", resetOneGame);
+  $("#loseEndGame").on("click", resetWholeGame);
+  $("#drawContinue").on("click", resetOneGame);
+  $("#drawEndGame").on("click", resetWholeGame);
+
+  const resetOneGameData = () => {
     buttons = {};
+    for (let i = 0; i < 9; i++) {
+      buttons[`${i + 1}`] = { owner: "none" };  
+    }
     playerButtons = [];
     computerButtons = [];
+  };
+
+  const resetWholeGameData = () => {
+    resetOneGameData();
+    records.rounds = 0;
+    records.playerWin = 0;
+    records.computerWin = 0;
+    records.draw = 0;
+  }
+
+  const resetOneGameUI = () => {
+    $(".confirm").removeClass("show");
     $("main button").removeClass("cross");
     $("main button").removeClass("circle");
+  }
+
+  function resetWholeGameUI() {
+    resetOneGameUI();
     for (let i = 0; i < 9; i++) {
       $(`#btn${i + 1}`).off(`click`);
     }
-    $('header').addClass('show');
-    $('audio')[0].play();
-    gameStart();
+    $("main button").prop("disabled", true);
+    $("#newGame").removeClass("newGame-after");
+    $("#newGame").addClass("newGame-before");
+    $("#newGame").text("New Game");
+    $("#newGame").off("click", resetWholeGame);
+    $("#newGame").on("click", newGame); 
+    $("header").removeClass("show");
+    $('footer p').removeClass("show");
+    // $('audio')[0].stop();
   }
 
-  $("#newGame").on("click", reset);
-  $("#winContinue").on("click", reset);
-  $("#winEndGame").on("click", reset);
-  $("#loseContinue").on("click", reset);
-  $("#loseEndGame").on("click", reset);
-  $("#drawContinue").on("click", reset);
-  $("#drawEndGame").on("click", reset);
+  function resetOneGame() {
+    resetOneGameData();
+    resetOneGameUI();
+    showRecords();
+    $("main button").prop("disabled", false);
+  }
+
+  function resetWholeGame() {
+    resetWholeGameData();
+    console.log(records);
+    resetWholeGameUI();
+    showRecords();
+  }
+
+  function newGame() {
+    $("main button").prop("disabled", false);
+    $("header").addClass("show");
+    $('footer p').addClass("show");
+    $("#newGame").removeClass("newGame-before");
+    $("#newGame").addClass("newGame-after");
+    $("#newGame").text("Reset Game");
+    // remove temporarily
+    // $('audio')[0].play();
+    showRecords();
+    gameStart();
+    $("#newGame").off("click", newGame);
+    $("#newGame").on("click", resetWholeGame);
+  }
 
   const showRecords = () => {
     $("#rounds").text(`Rounds: ${records.rounds}`);
@@ -42,8 +98,6 @@ $(document).ready(function () {
     $("#computerWin").text(`Computer Win: ${records.computerWin}`);
     $("#draw").text(`Draw: ${records.draw}`);
   };
-
-  showRecords();
 
   // function to check whether wins
   const checkWin = (buttonArr) => {
@@ -69,10 +123,7 @@ $(document).ready(function () {
   };
 
   function gameStart() {
-    // $('#newGame').text('Reset Game');
     for (let i = 0; i < 9; i++) {
-      // initialize the info of each button (?del info?)
-      buttons[`${i + 1}`] = { owner: "none" };
       // add click event listener to each button
       $(`#btn${i + 1}`).on("click", function () {
         // show circle on the button, disable it and record id
@@ -82,7 +133,6 @@ $(document).ready(function () {
         playerButtons.push(i + 1);
         // check whether draw
         if (Object.keys(buttons).length === 1 && !checkWin(playerButtons)) {
-          $("h1").text("It's a draw!");
           $("#drawResult").addClass("show");
           records.draw++;
           records.rounds++;
@@ -90,7 +140,6 @@ $(document).ready(function () {
         }
         // check whether player wins: could more than 4 digits
         else if (checkWin(playerButtons)) {
-          $("h1").text("You win!");
           $("#win").addClass("show");
           records.playerWin++;
           records.rounds++;
@@ -115,16 +164,14 @@ $(document).ready(function () {
             remainBtns.splice(remainBtns.indexOf(randomBtnId), 1);
             // check whether computer wins
             if (checkWin(computerButtons)) {
-              $("h1").text("computer win!");
               $("#lose").addClass("show");
               records.computerWin++;
               records.rounds++;
-              showRecords(); 
-            } 
-            
+              showRecords();
+            }
           };
           // make computer look like taking time thinking
-          setTimeout(computerMove,300);
+          setTimeout(computerMove, 300);
         }
       });
     }
