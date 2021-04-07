@@ -70,7 +70,7 @@ $(document).ready(function () {
     $("#newGame").on("click", newGame);
     $("header").removeClass("show");
     $("footer p").removeClass("show");
-    // $('audio')[0].stop();
+    $('audio')[0].pause();
   }
 
   function resetOneGame() {
@@ -97,8 +97,7 @@ $(document).ready(function () {
     $("#newGame").on("click", resetWholeGame);
     showRecords();
     gameStart();
-    // remove temporarily
-    // $('audio')[0].play();
+    $('audio')[0].play();
   }
 
   const showRecords = () => {
