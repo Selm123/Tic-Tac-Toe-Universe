@@ -24,7 +24,6 @@ $(document).ready(function () {
       $(`#btn${i + 1}`).off(`click`);
     }
     $('header').addClass('show');
-    $('audio')[0].play();
     gameStart();
   }
 

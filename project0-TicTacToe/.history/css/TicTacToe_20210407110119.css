@@ -92,7 +92,6 @@ main button {
 
 .show {
   display: block;
-  visibility:visible;
 }
 
 #newGame {
@@ -126,10 +125,10 @@ main button {
 }
 
 header {
-  display:block;
+  display:none;
   width: 420px;
   margin: 10px auto;
-  visibility: hidden;
+  display: none;
   font-size: 23px;
   border-radius: 10px;
   animation-name: title;
