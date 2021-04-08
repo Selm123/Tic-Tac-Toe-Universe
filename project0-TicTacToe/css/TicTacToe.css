@@ -21,6 +21,25 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
+  z-index: -2;
+  
+}
+
+img {
+  animation:spin 140s linear infinite;
+  position: absolute;
+  top:-360px;
+  left:-210px;
+  z-index: -1;
+  width: 130%;
+  height: 190%;
+  zoom:100%;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .container {
@@ -31,6 +50,27 @@ body {
 header {
   text-align: center;
   color: white;
+  display: block;
+  visibility: visible;
+  width: 420px;
+  margin: 10px auto;
+  font-size: 23px;
+  border-radius: 10px;
+  animation-name: title;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-fill-mode: backwards;
+  opacity: 0;
+  transition: opacity 4s;
+}
+
+.headerShow {
+  opacity: 1;
+}
+
+.headerHide {
+  opacity: 0;
 }
 
 main {
@@ -101,7 +141,7 @@ main button {
 
 .show {
   display: block;
-  visibility:visible;
+  /* visibility:visible; */
 }
 
 #newGame {
@@ -142,22 +182,6 @@ main button {
     background-color: white;
   }
 }
-
-header {
-  display:block;
-  width: 420px;
-  margin: 10px auto;
-  visibility: hidden;
-  font-size: 23px;
-  border-radius: 10px;
-  animation-name: title;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  animation-fill-mode: backwards;
-}
-
-
 
 @keyframes title {
   0% {

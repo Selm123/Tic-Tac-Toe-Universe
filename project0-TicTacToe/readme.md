@@ -1,12 +1,14 @@
 # Iteration list:
 
+** Must Do:
+1. Use 9 planets rolling on title before start and has no lines, show line after start
+2. When winning, show 9 planets moving in circle
+3. When Hover on element, show the planet name and description on right side
+
+
 ** Do:
 UI:
-1. Set transition for elements
-2. Make the background starry sky shine (code train?)
-3. When Hover on element, show the planet name and description on right side
-4. When winning, show 9 planes moving in circle
-5. Use 9 planets rolling on title before start and has no lines, show line after start
+1. Make the background starry sky shine (code train?)
 
 AI:
 1. Add computer level choice (not chess randomly but try to win), use miniMax.js
@@ -24,6 +26,9 @@ AI:
 [OK]Highest Records using local storage
 [OK]Add music play and stop. Change music source to online to make the project smaller
 [OK]Fix local storage: after refresh page, it still keep the data, but then after reset game once, it's set to 0 again.
+[OK]Make bacground spin
+[OK]Set transition for elements
+
 
 
 ** Advanced:

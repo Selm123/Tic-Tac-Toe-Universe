@@ -17,7 +17,7 @@ $(document).ready(function () {
 
   let highestScore = localStorage.getItem("highestScore") || 0;
   const updateHighestScore = () => {
-    if (records.playerWin >= (highestScore - 0)) {
+    if (records.playerWin >= highestScore - 0) {
       highestScore = records.playerWin;
     }
     localStorage.setItem("highestScore", highestScore);
@@ -76,9 +76,10 @@ $(document).ready(function () {
     $("#newGame").text("New Game");
     $("#newGame").off("click", resetWholeGame);
     $("#newGame").on("click", newGame);
-    $("header").removeClass("show");
-    $("footer p").removeClass("show");
-    $('audio')[0].pause();
+    $("header").removeClass("headerShow");
+    $("header").addClass("headerHide");
+    $("footer p").fadeOut(2000);
+    $("audio")[0].pause();
   }
 
   function resetOneGame() {
@@ -96,10 +97,9 @@ $(document).ready(function () {
 
   function newGame() {
     $("main button").prop("disabled", false);
-    $("header").addClass("show");
-    // $("header").fadeIn();
-    $("footer p").addClass("show");
-    // $("footer p").fadeIn();
+    $("header").removeClass("headerHide");
+    $("header").addClass("headerShow");
+    $("footer p").fadeIn(2000);
     $("#newGame").removeClass("newGame-before");
     $("#newGame").addClass("newGame-after");
     $("#newGame").text("Reset Game");
@@ -107,10 +107,8 @@ $(document).ready(function () {
     $("#newGame").on("click", resetWholeGame);
     showRecords();
     gameStart();
-    $('audio')[0].play();
+    $("audio")[0].play();
   }
-
-  
 
   // function to check whether wins
   const checkWin = (buttonArr) => {
