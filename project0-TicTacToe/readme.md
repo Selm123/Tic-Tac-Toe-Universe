@@ -1,8 +1,5 @@
 # Iteration list:
 
-** Must Do:
-1. Fix local storage: after refresh page, it still keep the data, but then after reset game once, it's set to 0 again.
-
 ** Do:
 UI:
 1. Set transition for elements
@@ -26,6 +23,7 @@ AI:
 [OK]Fix the new game / reset game and continue / end game
 [OK]Highest Records using local storage
 [OK]Add music play and stop. Change music source to online to make the project smaller
+[OK]Fix local storage: after refresh page, it still keep the data, but then after reset game once, it's set to 0 again.
 
 
 ** Advanced:

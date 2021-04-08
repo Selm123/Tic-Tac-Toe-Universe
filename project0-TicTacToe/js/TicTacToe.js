@@ -97,7 +97,9 @@ $(document).ready(function () {
   function newGame() {
     $("main button").prop("disabled", false);
     $("header").addClass("show");
+    // $("header").fadeIn();
     $("footer p").addClass("show");
+    // $("footer p").fadeIn();
     $("#newGame").removeClass("newGame-before");
     $("#newGame").addClass("newGame-after");
     $("#newGame").text("Reset Game");
