@@ -10,12 +10,8 @@
 UI:
 1. Make the background starry sky shine (code train?)
 2. Make the lines repeatedly fade in and out
-3. Make the start button earth / moon
 
-AI:
-1. 
-2. Add pvp mode
-3. Make computer be able to move first
+
 
 ** Completed
 [OK]Keep track of multiple game rounds with a win counter
@@ -44,6 +40,10 @@ Future interation:
 1. Fireworks when winning
 2. Allow player to choose different images as icon 
 3. **Support custom board sizes**: default is 3x3 but you could allow users to choose a larger board
+4. Make the start button earth / moon
+5. Add pvp mode
+6. Make computer be able to move first
+7. 
 
 
 ** Do finally:

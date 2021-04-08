@@ -1,6 +1,8 @@
 $(document).ready(function () {
+  // Intializers
   let buttons = {};
   for (let i = 0; i < 9; i++) {
+    // no specific meaning for using object to assign value to buttons here, just for future possible new features.
     buttons[`${i + 1}`] = { owner: "none" };
   }
 
@@ -15,16 +17,13 @@ $(document).ready(function () {
     draw: 0,
   };
 
+  let highestScore = localStorage.getItem("highestScore") || 0;
+
   let level2 = false;
 
   let level3 = false;
 
-  const resetHighestScore = () => {
-    localStorage.clear();
-    highestScore = localStorage.getItem("highestScore") || 0;
-    showRecords();
-  };
-
+  // functions to choose AI level
   const chooseLevel = () => {
     $("audio")[0].play();
     $("#chooseLevel").addClass("show");
@@ -48,7 +47,7 @@ $(document).ready(function () {
     newGame();
   };
 
-  let highestScore = localStorage.getItem("highestScore") || 0;
+  // function to update highest score
   const updateHighestScore = () => {
     if (records.playerWin >= highestScore - 0) {
       highestScore = records.playerWin;
@@ -56,6 +55,14 @@ $(document).ready(function () {
     localStorage.setItem("highestScore", highestScore);
   };
 
+  // function to reset highest score
+  const resetHighestScore = () => {
+    localStorage.clear();
+    highestScore = localStorage.getItem("highestScore") || 0;
+    showRecords();
+  };
+
+  // function to show game records
   const showRecords = () => {
     $("#rounds").text(`Rounds: ${records.rounds}`);
     $("#playerWin").text(`Player Win: ${records.playerWin}`);
@@ -66,18 +73,7 @@ $(document).ready(function () {
     );
   };
 
-  $("#newGame").on("click", chooseLevel);
-  $("#winContinue").on("click", resetOneGame);
-  $("#winEndGame").on("click", resetWholeGame);
-  $("#loseContinue").on("click", resetOneGame);
-  $("#loseEndGame").on("click", resetWholeGame);
-  $("#drawContinue").on("click", resetOneGame);
-  $("#drawEndGame").on("click", resetWholeGame);
-  $("#level1").on("click", goLevel1);
-  $("#level2").on("click", goLevel2);
-  $("#level3").on("click", goLevel3);
-  $("#resetHighestScore").on("click", resetHighestScore);
-
+  // functions to reset game 
   const resetOneGameData = () => {
     buttons = {};
     for (let i = 0; i < 9; i++) {
@@ -132,6 +128,7 @@ $(document).ready(function () {
     showRecords();
   }
 
+  // function to start new game
   function newGame() {
     $("main button").prop("disabled", false);
     $("header").removeClass("headerHide");
@@ -146,7 +143,7 @@ $(document).ready(function () {
     gameStart();
   }
 
-  // function to check whether wins
+  // function to check which side wins
   const checkWin = (buttonArr) => {
     const successfulPattern = [
       [1, 2, 3],
@@ -168,12 +165,13 @@ $(document).ready(function () {
     }
   };
 
+  // function of game logic
   function gameStart() {
     for (let i = 0; i < 9; i++) {
       // add click event listener to each button
       $(`#btn${i + 1}`).on("click", function () {
         // show circle on the button, disable it and record id
-        buttons[`${i + 1}`] = { owner: "player" }; //?del?
+        buttons[`${i + 1}`] = { owner: "player" }; //future feature
         $(`#btn${i + 1}`).addClass("circle");
         $(`#btn${i + 1}`).prop("disabled", true);
         playerButtons.push(i + 1);
@@ -265,7 +263,7 @@ $(document).ready(function () {
 
             computerButtons.push(randomBtnId - 0);
             // show cross on random button, disable it and update info
-            buttons[`${randomBtnId}`] = { owner: "computer" }; //?del?
+            buttons[`${randomBtnId}`] = { owner: "computer" }; //future feature
             $(`#btn${randomBtnId}`).addClass("cross");
             $(`#btn${randomBtnId}`).prop("disabled", true);
             // delete
@@ -286,4 +284,17 @@ $(document).ready(function () {
       });
     }
   }
+
+  // add event listners 
+  $("#newGame").on("click", chooseLevel);
+  $("#winContinue").on("click", resetOneGame);
+  $("#winEndGame").on("click", resetWholeGame);
+  $("#loseContinue").on("click", resetOneGame);
+  $("#loseEndGame").on("click", resetWholeGame);
+  $("#drawContinue").on("click", resetOneGame);
+  $("#drawEndGame").on("click", resetWholeGame);
+  $("#level1").on("click", goLevel1);
+  $("#level2").on("click", goLevel2);
+  $("#level3").on("click", goLevel3);
+  $("#resetHighestScore").on("click", resetHighestScore);
 });
