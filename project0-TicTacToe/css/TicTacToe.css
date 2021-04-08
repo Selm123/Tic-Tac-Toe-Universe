@@ -3,9 +3,7 @@
     border:1px solid green;
 } */
 
-
-@import url('https://fonts.googleapis.com/css2?family=Poller+One&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Poller+One&display=swap");
 
 html,
 body {
@@ -22,18 +20,17 @@ body {
   background-position: center center;
   background-size: cover;
   z-index: -2;
-  
 }
 
 img {
-  animation:spin 140s linear infinite;
+  animation: spin 140s linear infinite;
   position: absolute;
-  top:-360px;
-  left:-210px;
+  top: -360px;
+  left: -210px;
   z-index: -1;
   width: 130%;
   height: 190%;
-  zoom:100%;
+  zoom: 100%;
 }
 
 @keyframes spin {
@@ -206,7 +203,7 @@ footer {
   color: white;
   top: -500px;
   left: -100px;
-  font-size:larger;
+  font-size: larger;
   width: 30%;
   text-align: right;
 }
