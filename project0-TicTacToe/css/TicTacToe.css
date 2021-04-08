@@ -12,16 +12,14 @@ body {
   padding: 0px;
   overflow: hidden;
   font-family: "Poller One";
+}
+
+body {
   background-image: url("../img/starry\ sky.jpeg");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   z-index: -2;
-}
-
-.container {
-  width: 960px;
-  margin: 0 auto;
 }
 
 img {
@@ -39,6 +37,11 @@ img {
   to {
     transform: rotate(360deg);
   }
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
 }
 
 header {
