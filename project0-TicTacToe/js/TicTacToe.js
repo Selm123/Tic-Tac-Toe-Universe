@@ -200,8 +200,8 @@ $(document).ready(function () {
             let randomBtnId =
               remainBtns[Math.floor(Math.random() * remainBtns.length)];
 
+            // AI Algorithm //Begin
             if (level2) {
-              // AI Algorithm //Begin
               // Find the button id that if player occupy in next step would cause computer to lose, replae random button id with that button's id
               const checkNextMoveNotLose = () => {
                 for (let i = 0; i < remainBtns.length; i++) {
@@ -255,11 +255,13 @@ $(document).ready(function () {
               }
 
               // if player didn't occupy buttonId 5 (central button), computer must occupy it
-              if (remainBtns.includes("5")) {
-                randomBtnId = "5";
+              if (level2 || level3) {
+                if (remainBtns.includes("5")) {
+                  randomBtnId = "5";
+                }
               }
-              // AI Algorithm //End
             }
+            // AI Algorithm //End
 
             computerButtons.push(randomBtnId - 0);
             // show cross on random button, disable it and update info
