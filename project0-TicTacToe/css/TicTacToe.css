@@ -152,6 +152,9 @@ main button {
   font-size: 25px;
   font-weight: bolder;
   border-radius: 1em;
+  width: 100px;
+  position: relative;
+  left:60px
 }
 
 .newGame-before {
@@ -222,4 +225,15 @@ footer p {
 
 #highestScore {
   color: orange;
+}
+
+#resetHighestScore {
+  position: relative;
+  left: -138px;
+  color: white;
+  background-color: transparent;
+  font-family: "Poller One";
+  font-size: x-small;
+  width: 80px;
+  border-radius:1em ;
 }
