@@ -9,9 +9,11 @@
 ** Do:
 UI:
 1. Make the background starry sky shine (code train?)
+2. Make the lines repeatedly fade in and out
+3. Make the start button earth / moon
 
 AI:
-1. Add computer level choice (not chess randomly but try to win), use miniMax.js
+1. 
 2. Add pvp mode
 3. Make computer be able to move first
 
@@ -28,6 +30,8 @@ AI:
 [OK]Fix local storage: after refresh page, it still keep the data, but then after reset game once, it's set to 0 again.
 [OK]Make bacground spin
 [OK]Set transition for elements
+[OK]Add computer level choice (not chess randomly but try to win)
+
 
 
 

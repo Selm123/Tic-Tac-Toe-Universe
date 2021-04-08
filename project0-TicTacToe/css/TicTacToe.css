@@ -125,6 +125,12 @@ main button {
   height: 50px;
   width: 100px;
   font-family: "Poller One";
+  border-radius: 1em;
+  box-shadow:1px 5px 1px 1px lightblue;
+}
+
+.levels {
+  background-color: rgb(83, 187, 221);
 }
 
 .continue {
@@ -144,8 +150,8 @@ main button {
 #newGame {
   display: block;
   font-size: 25px;
-  border-radius: 10px;
   font-weight: bolder;
+  border-radius: 1em;
 }
 
 .newGame-before {
