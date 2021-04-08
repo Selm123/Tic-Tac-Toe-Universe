@@ -2,18 +2,21 @@
 
 ** Must Do:
 1. Fix local storage: after refresh page, it still keep the data, but then after reset game once, it's set to 0 again.
-2. Add music play and stop. Change music source to online to make the project smaller
 
 ** Do:
-1. Add computer level choice (not chess randomly but try to win), use miniMax.js
-2. Set transition for elements
-3. Fireworks when winning
-4. Make the background starry sky shine (code train?)
+UI:
+1. Set transition for elements
+2. Make the background starry sky shine (code train?)
+3. When Hover on element, show the planet name and description on right side
+4. When winning, show 9 planes moving in circle
 5. Use 9 planets rolling on title before start and has no lines, show line after start
-6. Hover red, but no hover red after game finish
-7. Add pvp mode
-8. Allow player to choose different images as icon
-9. Make computer be able to move first
+
+AI:
+1. Add computer level choice (not chess randomly but try to win), use miniMax.js
+2. Add pvp mode
+3. Make computer be able to move first
+
+** Completed
 [OK]Keep track of multiple game rounds with a win counter
 [OK]Popup window (modal window) for congratulation
 [OK]Change icon, replace with earth and moon gif
@@ -22,15 +25,18 @@
 [OK]After click New game, new game button stop shining and title start to shine. When end game then reverse.
 [OK]Fix the new game / reset game and continue / end game
 [OK]Highest Records using local storage
-
+[OK]Add music play and stop. Change music source to online to make the project smaller
 
 
 ** Advanced:
 1. Bring gradius game c#, copy all the things inside to make it a shooting game. konami code to show special selection and play shooting game with elements
-2. **Support custom board sizes**: default is 3x3 but you could allow users to choose a larger board
+2. Make lines using background colour not a picture, and set a timer to change colour gradients constantly
 3. Use a timer to keep changing the words on top (Space, the last frontier)
-4. List all 9 planest on side, select one of them and make them move with the mouse before click
-5. Make lines using background colour not a picture, and set a timer to change colour gradients constantly
+
+Future interation:
+1. Fireworks when winning
+2. Allow player to choose different images as icon 
+3. **Support custom board sizes**: default is 3x3 but you could allow users to choose a larger board
 
 
 ** Do finally:

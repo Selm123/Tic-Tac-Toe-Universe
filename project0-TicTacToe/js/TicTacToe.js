@@ -1,6 +1,5 @@
 $(document).ready(function () {
   let buttons = {};
-
   for (let i = 0; i < 9; i++) {
     buttons[`${i + 1}`] = { owner: "none" };
   }
@@ -16,13 +15,22 @@ $(document).ready(function () {
     draw: 0,
   };
 
-  let highestScore = 0;
-
+  let highestScore = localStorage.getItem("highestScore") || 0;
   const updateHighestScore = () => {
     if (records.playerWin >= (highestScore - 0)) {
       highestScore = records.playerWin;
     }
     localStorage.setItem("highestScore", highestScore);
+  };
+
+  const showRecords = () => {
+    $("#rounds").text(`Rounds: ${records.rounds}`);
+    $("#playerWin").text(`Player Win: ${records.playerWin}`);
+    $("#computerWin").text(`Computer Win: ${records.computerWin}`);
+    $("#draw").text(`Draw: ${records.draw}`);
+    $("#highestScore").text(
+      `Highest Score: ${localStorage.getItem("highestScore") || 0}`
+    );
   };
 
   $("#newGame").on("click", newGame);
@@ -100,15 +108,7 @@ $(document).ready(function () {
     $('audio')[0].play();
   }
 
-  const showRecords = () => {
-    $("#rounds").text(`Rounds: ${records.rounds}`);
-    $("#playerWin").text(`Player Win: ${records.playerWin}`);
-    $("#computerWin").text(`Computer Win: ${records.computerWin}`);
-    $("#draw").text(`Draw: ${records.draw}`);
-    $("#highestScore").text(
-      `Highest Score: ${localStorage.getItem("highestScore")}`
-    );
-  };
+  
 
   // function to check whether wins
   const checkWin = (buttonArr) => {
@@ -153,8 +153,8 @@ $(document).ready(function () {
         else if (checkWin(playerButtons)) {
           $("#win").addClass("show");
           records.playerWin++;
-          records.rounds++;
           showRecords();
+          records.rounds++;
         }
         // select one randomly from remaining buttons and record id
         else {
