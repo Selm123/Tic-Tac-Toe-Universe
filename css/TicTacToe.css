@@ -91,10 +91,6 @@ main button {
   border-radius: 90em;
 }
 
-.hover:hover {
-  background-color: red;
-}
-
 .circle {
   background-image: url("../img/earth.gif");
 }
