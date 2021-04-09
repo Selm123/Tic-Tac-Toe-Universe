@@ -1,6 +1,16 @@
 # Project #0: Tic Tac Toe with Planets and Unbeatable AI!
 
-**Don't try the impossible level!**
+***Don't try the impossible level!***
+> _By Selm123_
+
+https://selm123.github.io/GA-Projects-SEI43/project0-TicTacToe/
+
+
+## Techoniques used:
+* html
+* css
+* javaScript
+* jQuery
 
 ## Game screenshots:
 **Before game start**
@@ -30,7 +40,7 @@
 * Finish readme.md
 A ``readme.md`` file** with explanations of the technologies used, the approach taken, installation instructions, unsolved problems, etc.
 
-## Future interation:
+## Future iterations:
 1. Show Fireworks when winning
 2. Allow player to choose different images as icon 
 3. Support custom board sizes: default is 3x3 but you could allow users to choose a larger board
