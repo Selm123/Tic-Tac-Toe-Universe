@@ -1,8 +1,16 @@
 # Project #0: Tic Tac Toe with Planets and Unbeatable AI!
 
-**Don't try the impossible level**
+**Don't try the impossible level!**
 
+## Game screenshots:
+**Before game start**
 ![before start](https://github.com/Selm123/GA-Projects-SEI43/blob/main/project0-TicTacToe/img/before%20start.png)
+
+**Difficulty selection**
+![before start](https://github.com/Selm123/GA-Projects-SEI43/blob/main/project0-TicTacToe/img/level%20selection.png)
+
+**Game play**
+![before start](https://github.com/Selm123/GA-Projects-SEI43/blob/main/project0-TicTacToe/img/game%20play.png)
 
 ## Iteration list:
 
