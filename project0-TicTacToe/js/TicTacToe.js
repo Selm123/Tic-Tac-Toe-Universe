@@ -23,6 +23,10 @@ $(document).ready(function () {
 
   let level3 = false;
 
+  const buttonClick = () =>{
+    $('audio')[1].play();
+  }
+
   // functions to choose AI level
   const chooseLevel = () => {
     $("audio")[0].play();
@@ -171,7 +175,7 @@ $(document).ready(function () {
   function gameStart() {
     for (let i = 0; i < 9; i++) {
       // add click event listener to each button
-      $(`#btn${i + 1}`).on("click", function () {
+      $(`#btn${i + 1}`).on('click', buttonClick).on("click", function () {
         // show circle on the button, disable it and record id
         buttons[`${i + 1}`] = { owner: "player" }; //future feature
         $(`#btn${i + 1}`).addClass("circle");
@@ -290,15 +294,15 @@ $(document).ready(function () {
   }
 
   // add event listners
-  $("#newGame").on("click", chooseLevel);
-  $("#winContinue").on("click", resetOneGame);
-  $("#winEndGame").on("click", resetWholeGame);
-  $("#loseContinue").on("click", resetOneGame);
-  $("#loseEndGame").on("click", resetWholeGame);
-  $("#drawContinue").on("click", resetOneGame);
-  $("#drawEndGame").on("click", resetWholeGame);
-  $("#level1").on("click", goLevel1);
-  $("#level2").on("click", goLevel2);
-  $("#level3").on("click", goLevel3);
-  $("#resetHighestScore").on("click", resetHighestScore);
+  $("#newGame").on("click", chooseLevel).on('click', buttonClick);
+  $("#winContinue").on("click", resetOneGame).on('click', buttonClick);
+  $("#winEndGame").on("click", resetWholeGame).on('click', buttonClick);
+  $("#loseContinue").on("click", resetOneGame).on('click', buttonClick);
+  $("#loseEndGame").on("click", resetWholeGame).on('click', buttonClick);
+  $("#drawContinue").on("click", resetOneGame).on('click', buttonClick);
+  $("#drawEndGame").on("click", resetWholeGame).on('click', buttonClick);
+  $("#level1").on("click", goLevel1).on('click', buttonClick);
+  $("#level2").on("click", goLevel2).on('click', buttonClick);
+  $("#level3").on("click", goLevel3).on('click', buttonClick);
+  $("#resetHighestScore").on("click", resetHighestScore).on('click', buttonClick);
 });
