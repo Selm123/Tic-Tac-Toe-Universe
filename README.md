@@ -17,10 +17,10 @@ https://selm123.github.io/Tic-Tac-Toe-Universe/
 ![before start](https://github.com/Selm123/Tic-Tac-Toe-Universe/blob/main/screen%20shots/before%20start.png)
 
 **Difficulty selection**
-![before start](https://github.com/Selm123/Tic-Tac-Toe-Universe/blob/main/screen%20shots/game%20play.png)
+![before start](https://github.com/Selm123/Tic-Tac-Toe-Universe/blob/main/screen%20shots/level%20selection.png)
 
 **Game play**
-![before start](https://github.com/Selm123/Tic-Tac-Toe-Universe/blob/main/screen%20shots/level%20selection.png)
+![before start](https://github.com/Selm123/Tic-Tac-Toe-Universe/blob/main/screen%20shots/game%20play.png)
 
 ## Iteration list:
 
