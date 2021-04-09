@@ -2,7 +2,7 @@
 
 **Don't try the impossible level**
 
-
+![before start](https://github.com/Selm123/GA-Projects-SEI43/blob/main/project0-TicTacToe/img/before%20start.png)
 
 ## Iteration list:
 
