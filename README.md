@@ -3,7 +3,7 @@
 ***Don't try the impossible level!***
 > _By Selm123_
 
-https://selm123.github.io/GA-Projects-SEI43/project0-TicTacToe/
+https://selm123.github.io/Tic-Tac-Toe-Universe/
 
 
 ## Techoniques used:
@@ -14,13 +14,13 @@ https://selm123.github.io/GA-Projects-SEI43/project0-TicTacToe/
 
 ## Game screenshots:
 **Before game start**
-![before start](https://github.com/Selm123/GA-Projects-SEI43/blob/main/project0-TicTacToe/img/before%20start.png)
+![before start](https://github.com/Selm123/Tic-Tac-Toe-Universe/blob/main/screen%20shots/before%20start.png)
 
 **Difficulty selection**
-![before start](https://github.com/Selm123/GA-Projects-SEI43/blob/main/project0-TicTacToe/img/level%20selection.png)
+![before start](https://github.com/Selm123/Tic-Tac-Toe-Universe/blob/main/screen%20shots/game%20play.png)
 
 **Game play**
-![before start](https://github.com/Selm123/GA-Projects-SEI43/blob/main/project0-TicTacToe/img/game%20play.png)
+![before start](https://github.com/Selm123/Tic-Tac-Toe-Universe/blob/main/screen%20shots/level%20selection.png)
 
 ## Iteration list:
 
