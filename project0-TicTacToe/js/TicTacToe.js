@@ -73,7 +73,7 @@ $(document).ready(function () {
     );
   };
 
-  // functions to reset game 
+  // functions to reset game
   const resetOneGameData = () => {
     buttons = {};
     for (let i = 0; i < 9; i++) {
@@ -125,6 +125,8 @@ $(document).ready(function () {
   function resetWholeGame() {
     resetWholeGameData();
     resetWholeGameUI();
+    level2 = false;
+    level3 = false;
     showRecords();
   }
 
@@ -287,7 +289,7 @@ $(document).ready(function () {
     }
   }
 
-  // add event listners 
+  // add event listners
   $("#newGame").on("click", chooseLevel);
   $("#winContinue").on("click", resetOneGame);
   $("#winEndGame").on("click", resetWholeGame);
