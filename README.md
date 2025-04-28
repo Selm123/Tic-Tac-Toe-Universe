@@ -61,6 +61,11 @@ A ``readme.md`` file** with explanations of the technologies used, the approach 
 16. Make the background starry universe shine and stars in the universe moving against the screen continuously (code train?)
 17. Make the lines repeatedly fade in and out once the game starts
 18. Always show highest score, move its position to between new game button and reset highest score button
+19. 
+
+
+
+
 
 
 
